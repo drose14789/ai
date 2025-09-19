@@ -18,6 +18,6 @@
     1.7 요소 삭제 : pop(), pop(idx), remove(데이터), del lst[idx]
     1.8 복제 
 	복제변수 = 원본데이터.copy()
-2절. 튜플
+
 
 
