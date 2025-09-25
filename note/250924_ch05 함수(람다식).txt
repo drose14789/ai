@@ -1,6 +1,8 @@
 5장 함수
 4절 람다식
-- return 한 줄짜리 작은 익명함수
+	- lambda 매개변수들 : 리턴값
+	- 용도 : (1) 함수의 매개변수 > (2)함수를 return 할 때
+	- return 한 줄짜리 작은 익명함수
 	- variable_define # 함수의 인수를 정의
 	- statement
 	함수가 실행할 문장을 작성
