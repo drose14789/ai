@@ -1,0 +1,7 @@
+6장 모듈과 패키지
+4절 패키지 설치 및 삭제
+- 패키지 설치 : pip install 패키지명[==버전] / ==버전 안하면 최신 버전으로 다운로드
+  conda install 패키지명[==버전] /  ==버전 안하면 최신 버전으로 다운로드
+  whl 파일을 이용한 설치 : python -m pip install whl파일명
+- 패키지 확인 : pip show 패키지명 / conda list 패키지명
+- 패키지 삭제 : pip uninstall 패캐지명 / conda remove 패키지명
