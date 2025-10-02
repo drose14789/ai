@@ -1,0 +1,55 @@
+10장 N차원 배열(Numpy 배열) 다루기
+- 2차원 배열은 행렬개념으로 이해
+- numpy 패키지를 이용(c언어로 구현된 고성능 수치계산 패키지)
+1절 넘파이 패키지
+
+	1.1 배열속성
+	- dtype : 요소들의 type 
+	- itemsize : 요소의 byte 사이즈
+	- ndim : 차원수(축수)
+	- size : 요소 갯수
+	- shape : 배열의 구조(튜플)
+
+	1.2 배열 타입 변경
+	- 타입변경시 astype(타입)
+	- ravel : flatten된 배열 return 
+	  flatten : 함수의 결과가 return되면 배열 수정 안함
+
+	1.3 배열 저장
+	- pkl(객체저장, 배열, 머신러닝 모델) vs npy(넘파이 전용 포맷, io속도 개선)
+	
+2절 넘파이 배열
+- array() 함수를 이용하여 다른 파이썬 구조(list, tuple)를 배열로 변환
+- 기타함수들 : arange, ones, zeros, full, empty....linspace
+- 랜덤값을 갖는 함수들 : np.random.~
+
+	2.1 array()함수로 넘파이 배열 만들기
+	- array(obj, dtype= 'xx'나 np.xx, copy = T/F)
+	
+	2.2 기본값이 있는 배열 만들기
+	- np.zeros(tup, dtype) : 요소들이 다 0
+	- np.ones(tup, dtype) : 요소들이 다 1
+	- np.full(tup, 기본값, dtype) : 요소들이 다 두번째 매개변수
+	- np.empty(tup, dtype) : 초기 내용은 임의값인 배열(메모리 상태에 따라 초기값 달라짐)
+	※ 위의 함수를 이용해서 생성된 배열은 기본 dtype이 float64
+
+	2.3 랜덤값을 갖는 배열 만들기
+	- np.random.radom(tup) : 0부터 1미만의 균등분포를 갖는 랜덤값 
+	- np.random.uniform(low=0, high=1, size=tup) : low부터 high미만의 균등분포를 갖는 랜덤값
+	- np.random.normal(loc=0.0, scale=1.0, size=tup) : 평균loc과 표준편차 scale을 갖는 정규분포 랜덤값 
+	- np.random.rand(n) : 0부터 1미만의 균등분포의 1차원 배열(균등분포의 1차원 난수 배열발생)(난수 n개)
+	- np.random.randn(n) : 표준정규분포(평균0, 표준편차1) 
+
+	cf) np.random.radint(from, to) : from부터 to미만의 정수 난수 1개 발생 == random.radint(from, to-1)
+	
+	2.4 연속된 값을 갖는 배열 만들기
+	- np.arange(from, to, by, dtype) : from부터 to앞까지 by씩 건너뛴 값을 1차원 배열로 생성
+	- np.linspace(from, to, num) : from부터 to(to포함)까지 num개 숫자들을 1차원 배열로 생성
+	
+	2.5 배열의 차원 변경
+	- reshape(행수, 열수) : -1 가능
+	- resize(행수, 열수) : -1 불가
+	- T : 전치행렬로 변환
+	- transpose() : 전치행렬로 변환
+	※ 실행결과가 출력되면 배열이 수정되지 않고, 실행결과가 없으면 배열이 수정됨
+
