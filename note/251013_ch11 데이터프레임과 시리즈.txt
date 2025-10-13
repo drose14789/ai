@@ -1,0 +1,32 @@
+1절. 판다스 패키지
+- 데이터 분석을 위해 반드시 알아야 할 패키지. 넘파이를 기반으로 하며,
+  다른 많은 라이브러리와 잘 통합되도록 설계
+- 2차원 구조를 갖는 데이터프레임, 1차원 구조를 갖는 시리즈를 제공
+- 판다스 장점 : 데이터프레임생성, 파일io, 레이블링, 부분데이터 추출 크기 변경(행이나 열 삽입, 삭제), 
+   데이터 분할, 병합, 데이터구조변경, 결측치 처리
+- https://pypi.python.org/pypi/pandas   (package index)
+- http://pandas.pydata.org/pandas-docs/stable/api.html  (API reference)
+2절. 데이터프레임 만들기
+
+	2.1 딕셔너리 리스트를 이용해서 데이터 프레임 만들기
+	- df.to_dict() # 데이터프레임을 딕셔너리로
+	- df.to_numpy() # 데이터프레임을 넘파이 배열
+	- df.dtypes # 열의 타입
+	- df.info() # ★
+	- df[].astype() # 타입변견(열마다) # 결측치는 int로 형변환 불가(결측치를 대체값으로 치환 후 변화)
+
+	2.2 리스트를 이용해서 데이터프레임 만들기
+	- %Ls : ipython 매직 명령어
+	- !dir : 쉘명령어
+	
+	2.3 read_csv
+	- 특정행을 제외하고 csv 파일 읽어오기
+	- 상위 몇행만 sep문자는 , 아닌 csv파일 읽어오기
+	- 주석(#) 제외, datetime형 필드를 지정하여 csv 파일 읽어오기
+
+	2.4 패키지에서 가져오기 : iris 데이터
+	- iris 가져오기 방법1 : sklearn(머신러닝 패키지)
+	- iris 가져오기 방법2 : statsmodels (R 데이터)
+	- iris 가져오기 방법3 : seaborn(시각화패키지)
+	 2.4.1 iris 방법1 : sklearn
+	 - skleanr.datasets 모듈 데이터(iris)를 데이터 프레임으로 변환
