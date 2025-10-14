@@ -30,3 +30,7 @@
 	- iris 가져오기 방법3 : seaborn(시각화패키지)
 	 2.4.1 iris 방법1 : sklearn
 	 - skleanr.datasets 모듈 데이터(iris)를 데이터 프레임으로 변환
+	2.4.2 iris 방법2 : statsmodels
+	- R 패키지의 기본 데이터 가져오기
+	2.4.3 iris 방법3:seaborn
+	- 파일 출력, 파일 압축
