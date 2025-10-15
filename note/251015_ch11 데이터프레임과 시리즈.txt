@@ -1,0 +1,55 @@
+8절. 기초 통계 분석
+- 판다스는 기초통계(데이터 요약), statmodels : 난이도 있는 통계
+- count : NaN을 제외한 데이터수
+- min : 최소값
+- max : 최대값
+- sum : 합
+- cumsum : 누적합
+- cumprod : 누적곱
+- mean : 평균
+- median : 중위수
+- std : 표준편차
+- var : 분산
+- quantile : 분위수(0사분사위수==최소값, 1사분위수, 2사분위수(중위값), 3사분위수, 4사분위수 = 최대값)
+    * 이상치 구하는 용도 : Q1-1.5*IQR ~ Q3 + 1.5*IQR 이외의 데이터는 이상치
+- describe : 요약통계량
+- corr : 상관관계(계수)
+- rolling(n).mean() : n개씩 평균 출력 - 데이터변동이 많을 때  추세(패턴)를 부드럽게 보고 싶을 때
+
+9절. 데이터그룹화 및 집계
+	
+	9.1 groupby
+	1) 그룹화 방법1
+	- df.groupby(by=[그룹핑할 열])[[함수적용하여출력할열들]].기초통계함수()
+		- [[함수적용하여출력할열들]] 생략시 모든 열에 적용됨
+	1) 그룹화방법1-1 : 그룹핑할 때 index를 컬럼으로 편입
+	- df.groupby(by=[그룹핑할 열], as_index=False)[[함수적용하여출력할열들]].기초통계함수()
+  	2) 그룹화방법2 
+	- df.pivot_table(index='그룹화할 열',
+                	        values=[함수적용해서출력할열들],
+                    	        aggfunc='기초통계함수')
+	다중열 그룹화
+	- iris를 다중열로 그룹화하기 위해 데이터 추가(num필드)
+
+	9.2
+	- 종별 상위 3개씩 출력
+	- 종별 임의로 3개씩 출력
+	- 종별  0,10,20,30,40번째 출력
+	
+	9.3 데이프레임 그룹 인덱싱
+	- iris.groupby().take([])
+
+10절. 데이터 구조 변경
+- 와이드포맷 <-> 롱포맷
+- 판다스 공식 문서의 melt : https://pandas.pydata.org/docs/user_guide/reshaping.html#melt-and-wide-to-long
+- Tidy Data : https://vita.had.co.nz/papers/tidy-data.pdf
+	
+	10.1 melt를 이용한 언피벗팅(와이드포맷 -> 롱포맷)
+
+	10.2 pivot_table을 이용한 피벗팅(롱포맷 -> 와이드포맷)
+
+11절. 데이터프레임에 함수 적용하기
+- apply(func, axis) : (데이터프레임이나 시리즈 모두 적용 가능)
+- applymap(func) : 각 요소별로 적용(데이터프레임에서만 적용 가능)
+- map(func) : 각 요소별로 적용(1차원 시리즈에서만 가능)
+​
