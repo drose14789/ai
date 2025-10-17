@@ -35,5 +35,31 @@
 	 1) pyplot 함수들(교안16page)
 	 - https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.pyplot.html
 	 2) matplotlib.pyplot.plot() : 선 그래프
-	
 	 3) pandas.DataFrame.plot()
+	 - plt._____(x,y,fmt)
+	 - df.plot(x=None ,y,=None, kind='line', figsize=None, title=None, grid=None)
+    	   * kind : line(기본값), scatter(점도표), bar, barh, density, hist, pie(한컬럼만)...
+	 4) plt.scatter() : 산점도
+
+	1.5 그 외 그래프 그리기
+	 1) boxplot vs vilinplt
+	 - https://www.research.autodesk.com/publications/same-stats-different-graphs 
+	   동일한통계 , 다른 그래프
+	 - boxplot은 분포를 모름
+	 2) bar(), barh()
+	 3) hist(도수분포표, 히스토그램)
+	 4) axvline(), axhline(), fill(), fill_between()
+	 5) pie
+	 - 1차원
+	
+	1.6 그래프 커스터마이징
+	 1) linestyle, linewidth, color, marker
+	 2) text(), annotate()
+	 - 참고: https://matplotlib.org/api/axes_api.html#text-and-annotations
+	 3) 수학기호
+	 - 참고: https://matplotlib.org/users/mathtext.html
+	 4) 축과 눈금
+	 - https://matplotlib.org/3.1.0/api/axis_api.html
+	 5) 축공유 ★
+	 6) 범례표시
+	 7) 플롯스타일 지정
