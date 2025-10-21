@@ -1,0 +1,66 @@
+13장 예시 1 아파트분양가분석
+1. 패키지로드 & 한글설정 & 경고메세지 ignore
+
+2. 데이터 다운로드
+- https://www.data.go.kr 에서 "아파트 분양 가격"을 검색한 csv 다운로드
+
+(1) 2013년9월부터 2015년8월까지 데이터는 df_first 변수에 담아 탐색
+- color map 참조 : https://matplotlib.org/stable/users/explain/colors/colormaps.html
+(2) 이후 데이터는 df_last 변수에 담아 탐색
+
+3. df_last의 데이터 결측치를 확인하고 대체 고민
+
+4. df_last 데이셋에 평당분양가격컬럼 추가
+(1) astype('float')나 pd.to_numeric() 사용
+(2) 6,222 => 6222 수정, space가 저장된 경우 nan으로 수정하는 함수를 apply나 map적용
+(3) df_last['분양가격(제곱미터)']*3.3
+
+-apply
+ -apply(함수, axis) : 1차원, 2차원(axis 지정. axis기본값0)
+ -map(함수) : 1차원
+ -applymap(함수) : 2차원(모든 요소들에 함수를 적용
+
+-map
+
+-apply나 map사용 안 하기
+
+5. df_last 데이터셋에서 전용면적 컬럼을 추가한다
+- 전용면적 컬럼, 필요없는 컬럼 처리로 메모리 절약
+
+6. 메모리 사용량을 줄이기 위해 불필요한 컬럼 제거
+
+7. 데이터 집계
+- GroupBy(unstack()함수 이용) vs. pivot_table()
+- 우선 결측치 대체전 데이터 집계와 시각화를 할 예정
+- df_last.groupby(["인덱스로사용할컬럼명"])["계산할컬럼명"].연산함수()
+- df_last.pivot_table(index=["인덱스로사용할컬럼명"],
+              values=["계산할컬럼명"],
+              aggfunc="연산함수명")
+- pd.pivot_table(df_last, index=["인덱스로사용할컬럼명"],
+              values=["계산할컬럼명"],
+              aggfunc="연산함수명")
+
+(1) 지역별 데이터수
+(2) 지역별 평당분양가격(평균, 최대값, ... 요약통계량)
+(3) 전용면적별 평당분양가격(평균)
+(4) 지역별, 전용면적별 평당분양가격(평균)
+(5) 연도, 지역별 평당분양가격(평균)
+
+-color map 참조 : https://matplotlib.org/stable/users/explain/colors/colormaps.html
+
+8. matplotlib으로 시각화(위의 도표)
+- https://www.research.autodesk.com/publications/same-stats-different-graphs/
+
+(1) 지역별 결측치를 제외한 데이터수(line, bar)
+(2) 지역별 평당분양가격 (line, bar)
+(3) 전용면적별 평당분양가격(barplot)
+(4) 연도별 평균 평당분양가격(line, bar)
+
+- 범례:https://stackoverflow.com/questions/30490740/move-legend-outside-figure-in-seaborn-tsplot
+
+9. seaborn으로 시각화
+- 위에서 시각화한 내용을 seaborn으로 시각화
+
+(1) 지역별 평당분양가격
+(2) 연도별 평당분양가격
+(3) 그 외 lineplot, relplot, boxplot, violinplot, boxexplot, regplot, swarmplot

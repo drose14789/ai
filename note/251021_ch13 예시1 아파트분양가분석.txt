@@ -1,0 +1,12 @@
+13장 예시 1 아파트분양가분석
+10. 구조가 다른 df_first와 df_last를 연결 후 분석
+(1) concat
+- new_first :df_first를 [지역명, 연도, 월, 평당분양가격]으로 변환
+- new_last : df_last를 [지역명, 연도, 월, 평당분양가격]으로 변환
+    - (전용면적이 모든면적인 행만 추출후, 전용면적 열을 삭제)
+(2) 결측치 대체(연도별, 지역별 중위값)
+(3) df.csv파일로 출력
+(4) 7절부터 9절까지 분석을 한다(전용면적별 분석은 불가)
+- 지역명별 데이터 갯수는 결측치가 없어서 동일(groupby나 pivot_table등으로 확인)
+- 지역명별 평당분양가격(groupby, pivot_table, plot, seaborn 연습)
+- 연도별 지역명별 평당분양가격(groupby, pivot_table, plot, seaborn 연습)
