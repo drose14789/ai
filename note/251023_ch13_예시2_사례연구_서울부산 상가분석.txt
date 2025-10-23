@@ -1,0 +1,39 @@
+13 예시2 사례연구 서울부산 상가분석
+13. 구별로 학원수 비교 : 서울 대치동이나 목동에 사교육이 발달되었다는 가설을 뒷받침할 수 있는 분석
+① 서울시 교육(상권업종대분류명 이용) 데이터를 df_academy 변수에 할당하고 확인
+② df_academy 데이터 셋을 상호명별로 빈도수 출력(value_counts()함수 이용하거나 groupby이용)
+③ df_academy 데이터 셋을 상호명별로 빈도수 상위 10개 출력
+④ df_academy 데이터 셋을 시군구명 별로 빈도수 출력(학원이 가장 많은 구부터 출력)
+⑤df_academy 데이터 셋에서 어떤 종류의 학원들이 많은지 상위10개만 
+   academy_count변수에 할당하고 출력(상권업종소분류명 컬럼 이용)
+​⑥ df_academy 데이터셋에서 상권업종소분류명별로 빈도수를 구했을 때 빈도가 1000이상인 데이터만 따로 
+    academy_count_1000변수에 할당
+⑦ df_academy 데이터셋을 “시군구명”, "상권업종소분류명” 별 상호명 빈도수를 
+    academy_group 변수에 할당 출력
+⑧ academy_group 데이터셋에서 강남구 데이터만 출력 및 시각화(barplot)
+⑨ df_academy데이터 중 “법정동명”컬럼이 
+   “대치동”과 “목동”인 데이터만 가져와 상권업종소분류명별 빈도수 출력
+⑩“상권업종소분류명”별 "시군구명” 별 상호명 빈도수를 g변수에 할당하고 출력
+⑪ g변수의 내용중 "상권업종소분류명” 컬럼이 “입시·교과학원”데이터만 시각화
+   (pandas의 plot.bar, pandas의 barh, seaborn의 barplot)
+
+14. 서울시 데이터만 경도와 위도를 산점도로 시각화
+① df_academy 데이터셋의 경도와 위도를 “시군명”별로 색상을 다르게 scatterplot으로 시각화
+https://stackoverflow.com/questions/30490740/move-legend-outside-figure-in-seaborn-tsplot : 범례사용
+② df_academy 데이터셋의 경도와 위도를 “상권업종소분류명”별로 색상을 다르게 scatterplot으로 시각화
+③ df_academy 데이터셋 중 “입시·교과학원” 데이터만, 
+   경도와 위도를 “시군구명”별로 색상을 다르게 scatterplot으로 시각화
+④ df_academy 데이터셋 중 “태권도/무술학원” 데이터만, 경도와 위도를 
+    “시군명”별로 색상을 다르게 scatterplot으로 시각화
+⑤ df_academy 데이터셋 중 “입시·교과학원” 데이터와 “태권도/무술학원” 데이터만, 
+   경도와 위도를 “상권업종소분류명”별로 색상을 다르게 scatterplot으로 시각화
+
+​15. 지도시각화 : Folium
+아나콘다 프롬프트에서 아래의 둘 중 하나를 실행
+pip install folium
+conda install -c conda-forge folium
+
+- docs : 
+  https://python-visualization.github.io/folium/latest/getting_started.html?utm_source=chatgpt.com
+- Quickstart : 
+  https://python-visualization.github.io/folium/version-v0.9.1/quickstart.html?utm_source=chatgpt.com
