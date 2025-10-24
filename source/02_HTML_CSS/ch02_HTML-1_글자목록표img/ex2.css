@@ -1,0 +1,13 @@
+﻿/* ex2.css (3_표태그3.html의 디자인*/
+table {
+    background-color: #33f6fc;
+    margin: 20px 40px; /*밖여백 : 위, 오른쪽, 아래, 왼쪽*/
+}
+
+tr {
+    background-color: white;
+}
+td {
+    padding: 5px 15px 10px 20px; /*안여백 : 위, 오른쪽, 아래 왼쪽*/
+    text-align: center; /*글씨 가운데 정렬*/
+}

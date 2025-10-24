@@ -1,0 +1,17 @@
+﻿/* ex.css (3_표태그2.html의 디자인*/
+table {
+    background-color: red;
+}
+
+tr {
+    background-color: yellow;
+    text-align: center; /*글씨 가운데 정렬*/
+}
+
+    tr:hover {
+        background-color: lightgreen;
+    }
+
+caption {
+    background-color: lightyellow;
+}
