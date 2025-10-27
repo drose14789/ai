@@ -19,18 +19,20 @@
     <script>
         function chk() {
             // submit 안 일어나는 조건: title에 입력하지 않았거나 name에 2글자 미만 입력
-            if (!frm.title.valuetrim()) {// 빈문자("",')는 false }
+            if (!frm.title.value.trim()) {// 빈문자("",')는 false }
                 alert('제목을 꼭 입력하세요');
                 frm.title.value = "";
                 frm.title.focus(); //frm.title에 커서가 깜빡깜빡
                 return false;
             }
-            else if (frm.name.value.length < 2) {
-                alert('작성자명은 2글자 이상 입력하세요');
+           // else if (!frm.name.trim()) { // trim() : 좌우 space 없애기(파이썬strip())
+            // 작성자 명에 space가 아닌 한글자 이상 submit
+            else if (frm.name.value.trim().length < 2) { 
+                alert('작성자명은 2글자이상 필수 입력 사항입니다');
                 frm.name.focus()
-                return false;
+                return false; // submit 안 일어나도록
             }
-            return true;
+            return true; // submit 일어나도록
         }
     </script>
 </head>
