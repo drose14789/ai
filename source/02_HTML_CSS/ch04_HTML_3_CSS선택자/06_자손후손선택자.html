@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div#wrap{
+            width:600px;
+            margin: 0 auto;
+        }
+        /* .logo와 .title 수평으로 */
+        #wrap > #header{ /* 자손선택자 */
+            overflow:hidden;
+        }
+        #wrap .logo{
+            float:left;
+            padding:10px 30px 10px 150px;
+        }
+        #wrap .title{
+            float:left;
+            padding: 20px 150px 10px 30px;
+        }
+        div p{ /* 후손선택자 div 밑의 p(자손, 후손 포함)*/
+            font-size:25px;
+        }
+        div > p{ /* 자손석택자 div 바로밑의 p(자손만)*/
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="logo">
+                <h1>
+                    LOGO
+                </h1>
+            </div>
+            <div class="title">
+                <h2>
+                    00주식회사
+                </h2>
+            </div>
+        </div><!--header-->
+        <div id="content">
+            <p>
+                Sed vel ornare ipsum, quis volutpat ante. Phasellus laoreet at lorem eu mattis.
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        국가는 청원에 대하여 심사할 의무를 진다.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        대통령후보자가 1인일 때에는 그 득표수가 선거권자 총수의 3분의 1 이상이 아니면 대통령으로 당선될 수 없다.
+                    </p>
+                </li>
+            </ul>
+        </div><!--content-->
+        <div id="footer">
+            <p>
+                서울시 관악구 신림동
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+5장 CSS 속성들
+1. CSS 단위 : CSS3에서 자주 사용되는 단위들 확인 (https://pxtoem.com.au/)
+
+2. url() : Background-img 속성의 속성값으로 많이 사용됨
+   이 경우 배경이미지의 경로를 나타냄
+
+

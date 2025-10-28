@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div{
+            border:1px solid gray;
+            text-align:center; /* 글씨와 img 가운데 정렬 */
+        }
+        div#header{
+            width: 600px;
+            margin: 0 auto; /* 밖여백(위우하좌) */
+            background-color:yellow;
+        }
+        div#wrap{
+            width: 600px;
+            margin: 0 auto;
+            background-color: aqua;
+            overflow:hidden; /* 수평으로 놓고 싶은 부모단 */
+        }
+        #wrap #content{
+            width: 348px; /* 가로(348) + 테두리(2) =350px; */
+            float:left;
+            text-align:center;
+            height: 250px;
+        }
+        #wrap #side_banner{
+            width : 248px; /* 가로(248) + 데두리(2) = 250px */
+            float:right;
+            text-align:center;
+            height:250px;
+        }
+        #wrap #content li.odd{ /* class 선택자 */
+            font-size: 1.5em; /* 원크기의 1.2배 */
+        }
+        #wrap #content li.menu2{
+            font-weight:bold; /* 글씨 진하게 */
+        }
+        #wrap img {
+            width: 200px;
+        }
+        #footer{ /* id 선택자(#) */
+            width:600px;
+            margin: 0 auto;
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>
+            HEADER
+        </h1>
+    </div>
+    <div id="wrap">
+        <div id="content">
+            <h2>
+                CONTENT
+            </h2>
+            <ul>
+                <li class="menu1 odd">menu1</li>
+                <li class="menu2">menu2</li>
+                <li class="menu3 odd">menu3</li>
+                <li class="menu4">menu4</li>
+                <li class="menu1 odd">menu5</li>
+            </ul>
+        </div>
+        <div id="side_banner">
+            <h2>
+                BANNER
+            </h2>
+            <a herf="http://www.daum.net" target="_blank">
+                <img src="http://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png"
+                     alt="다음로고" />
+            </a>
+        </div>
+    </div>
+    <div id="footer">
+        <h1>
+            FOOTER
+        </h1>
+    </div>
+</body>
+</html>
