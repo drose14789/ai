@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=0.7, maximum-scale=2.0, user-scalable=yes">
     <title></title>
+    <link href="ex.css" rel="stylesheet">
     <style>
         header, footer{
             background-color: #ea8f00;
@@ -20,10 +21,112 @@
             <a href="" class="logo">mobile logo</a>
             <img src="ch07/myinfo.png" class="myinfo">
         </div>
-        <div id="search"></div>
+        <div id="search">
+            <form>
+                <input type="text" name="query_word">
+                <input type="submit" value="">
+            </form>
+        </div>
     </header>
-    <div id="lnb"></div>
-    <section></section>
-    <footer></footer>
+    <div id="lnb">
+        <ul>
+            <li><a href="#1">lnb1</a></li>
+            <li><a href="#2">lnb2</a></li>
+            <li><a href="#3">lnb3</a></li>
+            <li><a href="#4">lnb4</a></li>
+            <li><a href="#5">lnb5</a></li>
+            <li><a href="#6">lnb6</a></li>
+        </ul>
+    </div>
+    <section>
+        <div id="section1">
+            <div class="row1">
+                <div>
+                    <a href="https://n.news.naver.com/article/025/0003479274?cds=news_media_pc&type=editn">
+                        <img src="https://imgnews.pstatic.net/image/025/2025/10/30/0003479274_001_20251031082219041.jpg?type=w860" alt="1행1열기사">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://m.sports.naver.com/kbaseball/article/529/0000074434">
+                        <img src="https://imgnews.pstatic.net/image/529/2025/10/30/0000074434_001_20251030223311053.jpg?type=w647" alt="1행2열기사">
+                    </a>
+                </div>
+            </div>
+            <div class="row2">
+                <div>
+                    <a href="https://m.sports.naver.com/kbaseball/article/529/0000074434">
+                        <img src="https://imgnews.pstatic.net/image/529/2025/10/30/0000074434_001_20251030223311053.jpg?type=w647" alt="1행2열기사">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://n.news.naver.com/article/025/0003479274?cds=news_media_pc&type=editn">
+                        <img src="https://imgnews.pstatic.net/image/025/2025/10/30/0003479274_001_20251031082219041.jpg?type=w860" alt="1행1열기사">
+                    </a>
+                </div>
+            </div>
+            <div class="row3">
+                <div>
+                    <a href="https://n.news.naver.com/article/025/0003479274?cds=news_media_pc&type=editn">
+                        <img src="https://imgnews.pstatic.net/image/025/2025/10/30/0003479274_001_20251031082219041.jpg?type=w860" alt="1행1열기사">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://m.sports.naver.com/kbaseball/article/529/0000074434">
+                        <img src="https://imgnews.pstatic.net/image/529/2025/10/30/0000074434_001_20251030223311053.jpg?type=w647" alt="1행2열기사">
+                    </a>
+                </div>
+            </div>
+        </div><!--section1-->
+        <div id="section2">
+            <ul>
+                <li>
+                    <a href="https://n.news.naver.com/article/277/0005672448?cds=news_media_pc&type=editn">
+                        큰형님 따라 동생들도 신고가 행진…삼성그룹株 '잔칫집'
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/article/417/0001110346?cds=news_media_pc&type=editn">
+                        반도체가 이끌었다… 9월 투자 12.7%·생산 1.0%↑, 소비는 뒷걸음(종합)
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/article/277/0005672448?cds=news_media_pc&type=editn">
+                        큰형님 따라 동생들도 신고가 행진…삼성그룹株 '잔칫집'
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/article/417/0001110346?cds=news_media_pc&type=editn">
+                        반도체가 이끌었다… 9월 투자 12.7%·생산 1.0%↑, 소비는 뒷걸음(종합)
+                    </a>
+                </li>
+            </ul>
+        </div><!--section2-->
+        <div id="section3">
+            <ul>
+                <li>
+                    <p class="img">
+                        <img src="ch07/100img.png">
+                    </p>
+                    <p class="txt">
+                        <span>첫번째 span은 말줄임을 할 예정입니다. block타입으로 전환하여야 말줄임 적용</span>
+                        <span>두번째 span은 말줄임을 안 할 예정입니다. 그래서 inline 속성 그대로</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="img">
+                        <img src="ch07/100img.png">
+                    </p>
+                    <p class="txt">
+                        <span>첫번째 span은 말줄임을 할 예정입니다. block타입으로 전환하여야 말줄임 적용</span>
+                        <span>두번째 span은 말줄임을 안 할 예정입니다. 그래서 inline 속성 그대로</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <p><img src="ch07/logo.png" alt="회사로고"></p>
+        <p>서울시 XX구 XX동 XX빌딩 901호</p>
+    </footer>
 </body>
 </html>
