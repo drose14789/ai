@@ -1,0 +1,22 @@
+3장 조건문
+
+1. if 조건문
+
+2. if else 조건문
+
+3. 중첩 조건문
+
+4. if else if 조건문
+
+5. switch 조건문
+switch(비교할 값) {
+	case 값: 
+		문장; break;
+	case 값: 
+		문장; break;
+	Default:
+		문장; break;
+}
+
+6 삼항연산자
+- (불 표현식)? (참일 때 실행하는 문장) : (거짓일 때 실행하는 문장);

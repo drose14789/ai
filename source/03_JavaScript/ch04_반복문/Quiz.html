@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <title></title>
+    <style>
+        
+    </style>
+    <script>
+        let cnt = 0; //점수입력횟수
+        let right = 0; // 제대로된 숫자를 입력한 횟수
+        let wrong = 0; // 제대로된 숫자를 입력하지 않은 횟수(0~100사이의 숫자)
+        let sum = 0; // 점수 누적
+        // 반복문(조건: confirm 창에서 확인을 클릭)
+        // 1. prompt를 통해 점수 입력 받기 cnt++
+        // 2. 숫자로 형변환
+        // 3. 형변환된 숫자가 NaN여부 (isNaN함수 이용)
+        // 3-1. NaN이면 wrong ++ 
+        // 3-2 NaN이 아니면 right++, sum에 입력한 숫자 누적
+        // 반복문 빠져나온 후 cnt, sun, right, wrong 출력(document.write 이용)
+        
+        while(answer=confirm('누적할래?')){
+            if (answer==''){
+                break;
+            }else{
+                let scoreStr = prompt("누적할 점수?","0~100")
+                    cnt++;
+                if(scoreStr == null){
+                    worong++;
+                }else{
+                    let score = parseFloat(scoreStr);
+                    if(isNaN(score)){
+                        wrong++;
+                    }else{
+                        right++
+                        sum = sum+score;
+                    }
+                }
+            }
+        }
+        document.writeln(cnt + '번 입력'+'<br>');
+        document.writeln('누적점수:'+ sum+'<br>');
+        document.writeln('점수를 제대로 입력한 횟수:' + right+'<br>')
+        document.writeln('점수를 잘못 입력한 횟수:' + wrong+'<br>')
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
