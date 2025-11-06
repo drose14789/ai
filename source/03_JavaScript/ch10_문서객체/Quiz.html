@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <title></title>
+    <style>
+        table {width:280px; height: 100px; margin: 10px auto;} h3{text-align:center;}
+        td {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+    <script>
+        const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'violet'];
+        function bgColorChange(index) {
+            document.body.style.backgroundColor = colors[index];
+        }
+        function resetbg() {
+            document.body.style.backgroundColor = 'white';
+        }
+        window.onload = function() {
+            const tds = document.querySelectorAll('td');
+            tds.forEach((td, i) => {
+                td.style.backgroundColor = colors[i];
+                td.onmouseover = () => bgColorChange(i);
+                td.onmouseout = resetbg;
+            });
+        };
+    </script>
+</head>
+<body>
+    <h3>quiz : 마우를 올리면 바탕화면도 해당 색상으로</h3>
+    <table>
+        <tr onmouseout="bgColorChange(7)">
+        <td onmouseover="bgColorChange(0)"></td>
+        <td onmouseover="bgColorChange(1)"></td>
+        <td onmouseover="bgColorChange(2)"></td>
+        <td onmouseover="bgColorChange(3)"></td>
+        <td onmouseover="bgColorChange(4)"></td>
+        <td onmouseover="bgColorChange(5)"></td>
+        <td onmouseover="bgColorChange(6)"></td>
+        </tr>
+    </table>
+</body>
+</html>
