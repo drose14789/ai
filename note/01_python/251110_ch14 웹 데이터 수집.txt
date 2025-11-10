@@ -1,0 +1,18 @@
+14장 웹 데이터 수집
+1절. BeautifulSoup과 parser
+- pip install bs4 아나콘다를 설치하면 자동 설치되는 패키지 7500개에 포함
+- 공식 documentation: https://beautiful-soup-4.readthedocs.io/en/latest/
+
+2절. 정적 웹 데이터 수집(정적 웹크롤링)
+# 웹데이터 수집 -> 전처리 -> 분석 -> DL/ML
+https://dhlottery.co.kr/gameResult.do?method=byWin (google에 로또번호 당첨번호 검색)
+  1197회(2025년 11월 08일 추첨)
+  당첨번호 [1,5,7,26,28,43]
+  보너스 30
+3) 다음 검색 리스트
+no title                     link
+0   한풀 꺾인 비트코인 https://v.daum.net/v/20251110094711892
+4) User-Agent를 추가하여 크롤링
+- 자동으로 브라우저를 통해 요청하는 것 처럼 보이기
+- https://www.melon.com/chart/index.htm
+    * https://www.melon.com/robots.txt 에서 User-Agent에 봇이 지정
