@@ -9,6 +9,14 @@ https://dhlottery.co.kr/gameResult.do?method=byWin (google에 로또번호 당�
   1197회(2025년 11월 08일 추첨)
   당첨번호 [1,5,7,26,28,43]
   보너스 30
+2.1 BeautifulSoup을 활용한 html 웹 데이터수집¶
+1) 환율정보 가져오기 ( 네이버증권 -> 시장지표)
+https://finance.naver.com/marketindex/
+2) 이번 주 로또번호 출력
+https://dhlottery.co.kr/gameResult.do?method=byWin (google에 로또번호 당첨번호 검색)
+  1197회(2025년 11월 08일 추첨)
+  당첨번호 [1,5,7,26,28,43]
+  보너스 30
 3) 다음 검색 리스트
 no title                     link
 0   한풀 꺾인 비트코인 https://v.daum.net/v/20251110094711892
@@ -16,3 +24,5 @@ no title                     link
 - 자동으로 브라우저를 통해 요청하는 것 처럼 보이기
 - https://www.melon.com/chart/index.htm
     * https://www.melon.com/robots.txt 에서 User-Agent에 봇이 지정
+5) 네이버 지식인으로 검색(open API 사용X)
+- 특정 keyword를 특정페이지 수만큼

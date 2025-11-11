@@ -1,0 +1,16 @@
+14장 웹 데이터 수집
+2.2 openAPI사용 : json 웹데이터 수집
+1) 네이버 지식인으로 검색 (open API 사용 O)
+- 네이버 개발자센터에서 애플리케이션등록(이름/검색/WEB설정http://localhost)
+- .env파일에 CLIENT_ID/CLIENT_SECRET 환경변수 저장
+- 환경변수를 읽기 위헤서 `pip install dotenv`
+- 특정 keyword를 지식검색(데이터수 30개)
+
+2.3 XML 웹 데이터 수집
+- RSS / open API을 통한 XML 웹 데이터 수집
+1) 전국 날씨 RSS를 BeautifalSoup을 이용한 크롤링
+- 구글에 "기상청 RSS" 검색한 첫번째 사이트 이동
+2) XML응답하는 open API활용
+- data.go.kr에서
+  - 서울특별시_노선정보조회 서비스(버스ID, 정류장목록과정류장ID)
+  - 서울특별시_버스위치정보조회 서비스(실시간 버스 위치 목록)
