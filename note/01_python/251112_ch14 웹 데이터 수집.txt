@@ -1,0 +1,16 @@
+14장 웹데이터수집
+3절. Seleninum을 이용한 동적 웹크롤링 문법
+- Selenium docs: https://selenium-python.readthedocs.io/
+- pip install selenium
+- import에서 날 경우 
+- pit install requests 나 conda install urllib3=1.26.18
+
+4절. 동적웹크롤링 예제
+4.1 다음뉴스검색
+
+4.2 페이징 처리
+- 다음 뉴스 페이징 처리 : 원하는 keyword를 원하는 페이지만큼 추출
+
+4.3 맞춤법 검사기
+- 네이버 맞춤법 검사기 이용
+- 맞춤법검사전.txt 읽어 300자 단위로 짤라 list에 넣어 동적웹크롤링을 한후, 결과를 출력
