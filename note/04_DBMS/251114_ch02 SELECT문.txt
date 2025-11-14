@@ -1,0 +1,30 @@
+2장 SELECT문
+8. SQL 연산자
+- DISTINCT 필드; 필드 중복제거
+- BETWEEN a AND b : a부터 b (a,b값 포함. a가 작은 값) 
+- IN(list) : list의 값 중 어느 하나와 일치함
+- LIKE pattern : 검색하고자 하는 값을 정확히 모를 경우 pattern과 일치하는지를 검색하며 
+  pattern에는 다음의 두가지 와일드카드가 사용됨
+  ­ % : 문자가 없거나, 하나 이상의 문자가 어떤 값이 와도 상관없음
+  ­ _ : 하나의 문자가 어떤 값이 와도 상관없음
+- IS NULL : null값을 가졌다
+- NOT BETWEEN a AND b : a와 b 사이에 있지 않다(a,b값 포함되지 않음)
+- NOT IN (list) : list의 값과 일치하지 않는다.
+- NOT LIKE pattern : 문자형태가 pattern과 일치하지 않는다.
+- NOT 필드 IS NULL(필드 IS NOT NULL) : null값을 갖지 않다
+  ­ SELECT DISTINCT deptno FROM emp; -- 부서코드들 중복제거해서 출력
+  ­ SELECT DISTINCT job FROM emp;
+  ­ SELECT DISTINCT deptno, job FROM emp;
+  ­ SELECT ename, sal FROM emp WHERE sal between 100 and 1500; 
+  ­ SELECT empno, ename, job, sal, hiredate FROM emp WHERE empno IN (7902,7788,7566); 
+
+9. 정렬을 위한 ORDER BY 절
+- ASC 오름차순. Default
+- DESC 내림차순
+- SELECT *  FROM emp ORDER BY SAL; -- 오름차순 정렬(기본) ASC
+- SELECT * FROM emp ORDER BY sal ASC; -- ASC 오름차순
+- SELECT * FROM emp ORDER BY sal DESC; -- 내림차순 정렬
+- SELECT ename, hiredate FROM emp ORDER BY hiredate DESC; -- 내림차순
+- SELECT ename, hiredate FROM emp ORDER BY hiredate; -- 오름차순
+- 연봉이 작은 것부터 순서대로 출력(연봉이 같으면 입사일로 나중인 사람 순으로 정함)
+- SELECT ename, sal*12+NVL(comm, 0) 연봉 FROM emp ORDER BY 연봉, hiredate DESC;

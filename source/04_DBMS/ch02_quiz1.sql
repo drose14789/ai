@@ -14,7 +14,10 @@ SELECT EMPNO 사번, ENAME 이름, SAL 급여
 --6. 입사일이 81/02이후에 입사한 사람의 사번, 이름, 업무, 입사일 출력
 SELECT EMPNO 사번, ENAME 이름, JOB 업무, HIREDATE 입사일 
     FROM EMP
-    WHERE TO_CHAR(HIREDATE,'YYYY-MM')>='1982-02';
+    WHERE TO_CHAR(HIREDATE,'YYYY-MM')>='1981-02';
+SELECT EMPNO 사번, ENAME 이름, JOB 업무, HIREDATE 입사일 
+    FROM EMP
+    WHERE HIREDATE>= TO_DATE('81/02/01', 'RR/MM/DD');
 --7. 업무가 SALESMAN인 사람들 모든 자료 출력
 SELECT *FROM EMP
     WHERE JOB = 'SALESMAN';
@@ -39,3 +42,4 @@ SELECT EMPNO 사번, ENAME 이름, JOB 업무, SAL 급여
     WHERE JOB = 'MANAGER' AND SAL >= 2500;
 --13.“ename은 XXX 업무이고 연봉은 XX다” 스타일로 모두 출력(연봉은 SAL*12+COMM)
 SELECT ENAME || '은' || JOB || '업무이고 연봉은' || TO_CHAR(SAL*12+NVL(COMM,0))||'다' FROM EMP;
+SELECT ENAME || '은' || JOB || '업무이고 연봉은' || (SAL*12+NVL(COMM,0))||'다' title FROM EMP;

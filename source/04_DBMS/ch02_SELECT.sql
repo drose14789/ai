@@ -69,4 +69,67 @@ SELECT ENAME || '은(는)' || JOB FROM EMP;
 -- 7. 중복제거(DISTINCT)
 SELECT DISTINCT JOB FROM EMP;
 SELECT DISTINCT DEPTNO FROM EMP;
+
+-- 8. SQL연산자(BETWEEN, IN, LIKE, IS NULL)
+-- (1) BETWEEN A AND B : 필드명이 A부터 B까지(A, B포함. A<=B)
+    -- ex1. SAL이 1500이상 3000이하
+    SELECT * FROM EMP WHERE SAL>=1500 AND SAL<=3000;
+    SELECT * FROM EMP WHERE SAL BETWEEN 1500 AND 3000;
+    SELECT * FROM EMP WHERE SAL BETWEEN 3000 AND 1500; -- X
+    -- ex1-1. SAL이 1500 미만 3000초과 (ex1의 반대)
+    SELECT * FROM EMP WHERE SAL  NOT BETWEEN 1500 AND 3000;
+    SELECT * FROM EMP WHERE SAL<1500 OR SAL>3000;
+    -- ex2. 81년도 봄(3월~5월)에 입사한 직원의 모든 필드
+    SELECT * FROM EMP WHERE HIREDATE BETWEEN '81/03/01' AND '81/05/31';
     
+-- (2) 필드명 IN (값1, 값2, ..., 값N)
+    -- ex1. 부서코드가 10번이거나 30이거나 40인 사람의 모든 정보
+    SELECT * FROM EMP WHERE DEPTNO=10 OR DEPTNO=30 OR DEPTNO=40;
+    SELECT * FROM EMP WHERE DEPTNO IN (10, 30, 40);
+    -- ex2. 직책(JOB)이 'MANAGER' 이거나 'ANALYST'인 사원의 모든 정보
+    SELECT * FROM EMP WHERE JOB IN ('MANAGER', 'ANALYST');
+    -- ex1-1. ex1의 반대(부서번호가 10번도 아니고, 30도 아니고 40도 아닌 사람)
+    SELECT * FROM EMP WHERE DEPTNO NOT IN (10, 30, 40);
+    -- ex2-1. ex2의 반대(직책이 'MANAGER' 거나 'ANALYST' 가 아닌 사람)
+    SELECT * FROM EMP WHERE JOB NOT IN ('MANAGER', 'ANALYST');
+    
+--(3) 필드명 LIKE '패턴' : %(0글자이상), _(한글자)를 포함하는 패턴
+    -- ex. 이름이 M으로 시작하는 사원의 모든 정보
+    SELECT * FROM EMP WHERE ENAME LIKE 'M%';
+    -- ex. 이름이 S로 끝나는 사원의 모든 정보
+    SELECT * FROM EMP WHERE ENAME LIKE '%S';
+    -- ex. 이름에 N이 들어가는 사윈의 모든 정보
+    SELECT * FROM EMP WHERE ENAME LIKE '%N%';
+    -- ex. 이름에 N이 들어가고 JOB에 S가 들어가는 사원의 모든 정보
+    SELECT * FROM EMP WHERE ENAME LIKE '%N%' AND JOB LIKE '%S%';
+    -- ex. SAL이 5로 끝나는 사원
+    SELECT * FROM EMP WHERE SAL LIKE '%5%';
+    -- ex. 82년도에 입사한 사원
+    SELECT * FROM EMP WHERE TO_CHAR(HIREDATE, 'RR/MM/DD') LIKE '82/%';
+    SELECT * FROM EMP WHERE TO_CHAR(HIREDATE, 'RR')=82;
+    -- ex. 1월에 입사한 사원
+    SELECT * FROM EMP WHERE TO_CHAR(HIREDATE, 'RR/MM/DD') LIKE '__/01/__';
+    SELECT * FROM EMP WHERE TO_CHAR(HIREDATE, 'MM')=01;
+    -- ex. 이름에 %가 들어간 사원
+    SELECT * FROM EMP WHERE ENAME LIKE '%\%%' ESCAPE '\';
+    DESC EMP;
+        -- 이름에 %가 들어간 데이터 INSERT
+        INSERT INTO EMP VALUES (9998, '홍%동', NULL, NULL, NULL, 9000, 9000, 40);
+    SELECT * FROM EMP;
+    ROLLBACK; --DML(데이터조작어;추가,수정,삭제,검색)를 취소
+    
+-- (4) 필드명 IS NULL : 필드명이 널인지 검색할 때
+    -- ex. COMM(상여)이 없는 사원을 출력
+    SELECT * FROM EMP WHERE COMM IS NULL OR COMM=0;
+    -- ex. COMM(상여)을 받는 사원(COMM!=0 AND COMM이 NULL이 아님)
+    SELECT * FROM EMP WHERE COMM IS NOT NULL AND COMM!=0;
+    
+-- 9. 정렬(오름차순, 내림차순) : ORDER BY 절
+SELECT * FROM EMP ORDER BY SAL; -- 오름찬수
+SELECT * FROM EMP ORDER BY SAL DESC; -- 내림차순
+    -- ex. 급여는 내림차순,  급여 같으면 입사일이 내림차순
+    SELECT * FROM EMP ORDER BY SAL DESC, HIREDATE DESC;
+    -- ex. 급여가 2000초과하는 사원을 출력 - 이름 abc순 출력(오름차순)
+    SELECT * FROM EMP WHERE SAL>2000 ORDER BY ENAME;
+    
+
