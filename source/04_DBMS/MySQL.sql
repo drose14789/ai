@@ -122,3 +122,14 @@ insert into personal values (1226,'park','analyst',1111,'1990-01-03',2500,null,1
 -- workbench에서 자동 commit mode 운용
 select * from division;
 select * from personal;
+
+-- oracle과 다른 함수들과 연결연산자(||)
+select pname||'은'||job from personal; -- 연결연산이 안 됨
+select concat(pname, '은', job) from personal;
+
+select sysdate(); -- mysql는 select절 가능
+-- date_format(날짜형, 포맷) : 날짜형을 문자로
+-- date_format(문자형, 포맷) : 문자형을 날짜형으로
+	-- %Y(년도 4자리) %y(년도 2자리), %m(월) %d(일 01, 02,.), %c(일1,2)
+    -- %h(시) %i(분) %s(초) %p(오전)
+select date_format(sysdate(), '%y년 %m월 %d일 %p %h:%i:%s') 지금;
