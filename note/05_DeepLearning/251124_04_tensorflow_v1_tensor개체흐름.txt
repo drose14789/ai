@@ -1,0 +1,12 @@
+3. Logistic regression == Binary classification
+- 로지스틱 회귀분석 = 이진분류분석
+- 기존의 회귀분석과 loss function이 달라짐
+# sigmoid 활성화함수를 입히면 cost가 작아져 gradient 엄청 작아짐
+# 학습이 제대로 진행 안됨 그래서 loss fucntion을 cross entropy 사용
+
+4. XOR
+
+5. Deep Learning : XOR
+
+layer층을 X2 => 10=> 20=> 10=> y1
+                입력층

@@ -1,0 +1,6 @@
+- utils.to_categorical(): 분류분석시 y데이터 원핫인코딩
+
+1. 데이터 셋 생성 & 전처리
+# 1. csv파일을 데이터프레임을 읽어오기(결측치처리, 균형확인 용이) 기본encoding='utf-8'
+# 2. csv파일을 numpy 배열로 읽어오기 : np.loadtxt() #이 있는 행은 제외하고 읽어오기
+    기본 encoding='cp949'

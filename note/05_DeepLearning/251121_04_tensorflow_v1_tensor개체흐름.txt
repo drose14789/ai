@@ -26,3 +26,5 @@ placeholder : 외부에서 데이터를 입력받을 수 있는 노드
     - standarization = ───────────────────
                      			Xstd(표준편차)
   	* 위의 식보다 라이브러리 추천(sklearn.preproessing.StandardScaler)
+
+2.5 독립변수 x가 3개, 타겟(종속)변수 y가 1개
