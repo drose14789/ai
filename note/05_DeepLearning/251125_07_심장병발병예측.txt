@@ -1,0 +1,70 @@
+이진분류(로지스틱 회귀분석)
+- 1.데이터셋 생성 & 전처리
+     - 엑셀 -> 데이터프레임 -> ?처리(결측치로 전환하여 결측치처리) -> X, y분리 
+         -> X변수의 scale 조정 -> train_test_split() 이용하여 학습셋과 테스트셋분리
+- 2. 모델생성(입력14, 출력1) & 학습과정 설정 & 학습
+- 3. 모델평가(그래프, 평가, 혼동행렬==교차표)
+- 4. 모델사용
+
+age 나이 (세)
+sex 성별
+    1 : 남성
+    0 : 여성
+cp (chest pain type) 가슴 통증(흉통) 타입
+    1 : typical angina (전형적 협심증)
+    2 : atypical angina (비전형적 협심증)
+    3 : non-anginal pain (심장 관련이 아닌 흉통)
+    4 : asymptomatic (증상 없음)
+treshtbps (resting blood pressure) 안정 시 수축기 혈압 (mm Hg)
+    병원 처음 내원했을 때 잰 혈압이라고 보면 됨
+chol (serum cholesterol) 혈청 콜레스테롤 수치 (mg/dl)
+    여기 보니까 ?가 있어서, 일부 결측값이 문자로 들어가 있는 상태야
+fbs (fasting blood sugar) 공복 혈당 > 120 mg/dl 여부
+    1 : 공복 혈당 120 초과 (고혈당)
+    0 : 아니면 0
+restecg (resting electrocardiographic results) 안정시 심전도 결과
+    0 : 정상
+    1 : ST-T wave 이상 (ST-T 파 이상, T wave 반전 등)
+    2 : LVH 가능성 (좌심실 비대 소견 등)
+thalach (maximum heart rate achieved) 운동 검사에서 기록된 최대 심박수
+exang (exercise induced angina) 운동으로 유발된 협심증 여부
+    1 : 운동 시 흉통 있음
+    0 : 없음
+oldpeak 운동으로 인해 발생한 ST 절 하강 정도 (depression)
+    숫자가 클수록 보통 심장 허혈 가능성↑로 봄
+slope (slope of peak exercise ST segment) 운동 시 ST 세그먼트 기울기
+    1 : upsloping (상승형)
+    2 : flat (평평)
+    3 : downsloping (하강형)
+ca 조영제(조영술)에서 보이는 주요 관상동맥 수 (0~3)
+    0이면 문제 있는 관상동맥이 없는 것, 
+    숫자가 클수록 문제 있는 혈관 수가 많다고 보면 됨
+    여기에도 ? 값 좀 섞여 있음
+hsl (보통 다른 데이터셋에서는 thal) 아마 **thalassemia 관련 검사 결과(thal)**를 의미
+    3 : normal
+    6 : fixed defect (고정 결손)
+    7 : reversible defect (가역 결손)
+    여기도 숫자가 이런 패턴이라, 같은 의미로 봐도 될 듯
+heartDisease (target) 심장질환 유무 (목표 변수)
+
+1. 데이터셋 생성 & 전처리
+# 아나콘다 프롬프트에서 ml-dl-nlp 가상환경(conda activate ml-dl-nlp)으로 간 후 
+   pip install openpyxl
+# '?'가 포함된 데이터 추출 (chol, ca, hsl)
+# ?를 결측치(np.nan)로 대체 -> 결측치 대체(삭제)
+# 결측치가 포함된 데이터 추출
+# 결측치 처리: 대체(fillna), 삭제(dropna)
+# target 변수의 분포가 균형을 이루는지
+# 입력(독립)변수와 타겟(종속, 출력)변수 분리
+# 입력변수 X의 스케일 조정
+# scaled_X, y를 학습셋: 테스트셋 = 7:3으로 분할
+# 심장병 음성/양성의 비율
+
+2. 모델생성(입력13, 출력1) & 학습과정 설정 & 학습
+- 모델 : 13 -> 32 -> 16 -> 8 -> 1
+- 그래프를 보고, 과적합 줄이기 추가할 수 있음
+
+3. 모델평가(그래프, 평가, 교차표)
+# 교차표(혼동행렬)
+
+분류분석
