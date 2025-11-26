@@ -1,0 +1,27 @@
+1. 데이터 생성 및 전처리
+# Train데이터 6만개 => Train(5만개) + val(만개)로 분리
+# 입력(독립) 변수 (n, 28, 28) -> (n, 28*28) -> 실수형변환 -> 스케일조정(/255.0)
+# 분류분석을 위한 타겟변수의 원핫인코딩
+# Train 5만 -> 700개, Val 만 -> 300개 (목적:수업시간 중 fit시간 절약)
+2. 모델구성
+# activation='Leakeyrelu' 사용불가
+3. 학습과정 설정
+4. 모델 학습
+5. 모델 평가하기
+# 모델 평가(테스트셋)
+
+위 모델(DNN)의 accuracy 늘리기
+- 데이터 확보
+- 모델 수정 (레이어 추가, units수 증가)
+- 과적합 방지(validation data 추가, 활성화 함수 relu계열, tanh, dropout)
+- epoch 조정
+- optimizer 변경
+
+※ 콜백함수1 : 로그출력
+
+※ 콜백함수2 : EarlyStopping
+- val_loss값이 늘어나면 지정한 epoch를 다 수행하지 않고 조기 종료
+- val_accuracy값이 감소하면 지정한 epoch를 다 수행하지 않고 조기 종료
+
+※ 콜백함수 3 : ModelCheckpoint
+- epoch마다 val_accuracy(val_loss, accuracy, loss)값이 좋을 때 모델을 자동 저장하는 콜백
