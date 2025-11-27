@@ -1,0 +1,53 @@
+- 1. 데이터 생성 및 전처리
+- 2. 모델구성
+- 3. 학습과정 설정
+- 4.모델 학습
+1. 기본적인 DNN
+
+2. sklearn 이용
+- 원핫인코딩을 하지 않고 라벨인코딩까지만 해야 작동
+
+3.클래스를 생성하여 모델 생성함수 사용
+
+4. 함수형 API
+- 병렬처리, Resicual block
+# 기존 model 스타일1
+model = Sequential()
+model.add(Input(shape=(4,)))
+model.add(Dense(units=50, activation='relu'))
+model.add(Dense(units=30, activation='relu'))
+model.add(Dense(units=3, activation='softmax'))
+# 기존 model 스타일2
+model = Sequential([
+            Input(shape=(4,)),
+            Dense(units=50, activation='relu'),
+            Dense(units=30, activation='relu'),
+            Dense(units=3, activation='softmax')
+        ])
+# 기존 model 스타일3 (함수형 API)
+from tensorflow.keras import Model
+input_ = Input(shape=(4,))
+layer1 = Dense(units=50, activation='relu')(input_)
+layer2 = Dense(units=30, activation='relu')(layer1)
+output = Dense(units=3, activation='softmax')(layer2)
+model = Model(inputs=input_, outputs=output)
+# 병렬처리 방식
+from tensorflow.keras.layers import concatenate
+input_ = Input(shape=(4,))
+dense1 = Dense(units=50, activation='relu')(input_)
+dense2 = Dense(units=80, activation='relu')(input_)
+dense3 = Dense(units=30, activation='relu')(input_)
+x = concatenate([dense1, dense2, dense3])
+output = Dense(units=3, activation='softmax')(x)
+model = Model(inputs=input_, outputs=output)
+# 리지듀얼 블럭(Residual Block) : 
+   딥러닝에서 기울기 소실 문제로 학습이 잘 되 지 않는 부분을 해결하기 위한 제안
+from tensorflow.keras.layers import add, concatenate
+from tensorflow.keras import Model
+input_ = Input(shape=(4,))
+dense1 = Dense(units=50, activation='relu')(input_)
+dense2 = Dense(units=50, activation='relu')(dense1)
+dense3 = add([dense1, dense2])
+output = Dense(units=3, activation='softmax')(dense3)
+model = Model(inputs=input_, outputs=output)
+model.summary()
