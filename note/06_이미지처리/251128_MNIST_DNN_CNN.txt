@@ -1,0 +1,117 @@
+1. DNN
+# mnist 데이터를 일부를 이미지 출력하기
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+X_test.shape, y_test.shape
+# 1. 데이터 생성
+# 2. 모델 생성
+# 3. 학습 과정 설정
+# 4. 학습하기
+# 모델 평가
+# 틀린 갯수
+# 틀린 이미지만 출력하기 위해, 실제값과 예측값
+# 성능 평가표 (교차표, 혼동행렬)
+2.CNN
+- 컨볼루션 layer -> pooling -> 컨볼루션 layer -> pooling -> DNN
+# 1. 데이터 생성 & 전처리
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+# Train데이터 6만개 => Train(5만개) + val(만개)로 분리
+X_val = X_train[50000:]
+y_val = y_train[50000:]
+X_train = X_train[:50000]
+y_train = y_train[:50000]
+X_train.shape, y_train.shape, X_val.shape, y_val.shape, X_test.shape, y_test.shape
+train_X = X_train.astype('float32')/255.0
+val_X = X_val.astype('float32')/255.0
+test_X = X_test.astype('float32')/255.0
+train_Y = to_categorical(y_train)
+val_Y = to_categorical(y_val)
+test_Y = to_categorical(y_test)
+
+# 2. 모델 생성
+width=28; height=28
+model = Sequential([
+    Conv2D(filters=32, #필터수
+          kernel_size=3, # 필터 사이즈 3x3
+          padding='same',  # zero-padding/ padding='valid' 기본값
+          input_shape = (width, height, 1), # 흑백 1채널
+          activation = 'relu' 
+    ),# 28*28 1채널 이미지를 32개 필터로 특성맵 추출 => 28*28*32
+    MaxPool2D(pool_size=(2,2)), # 가로2배, 세로2배 전체 4배 줄어듦 
+    Dropout(0.1),
+    Conv2D(filters=64, kernel_size=(3,3), activation='relu'),
+    MaxPool2D(pool_size=(2,2)),
+    Dropout(0.25),
+    Flatten(),
+    Dense(units=128, activation='relu'),
+    Dropout(0.4),
+    Dense(units=10, activation='softmax')
+])
+
+# 3. 학습과정 설정
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+# 4. 학습하기
+early_stopping = EarlyStopping(patience=10)
+checkpoint = ModelCheckpoint(
+    filepath = 'mnist-{epoch:02d}-loss{val_loss:.4f}-val{val_accuracy:.4f}.h5',
+    monitor = 'val_accuracy',
+    save_best_only=True,
+    mode='max',
+    verbose=1
+)
+hist = model.fit(train_X, train_Y, epochs=50, batch_size=32,
+                validation_data=(val_X, val_Y),
+                callbacks=[early_stopping, checkpoint])
+
+# 학습과정 표시하기
+import matplotlib.pyplot as plt
+fig, loss_ax = plt.subplots(figsize=(10,6))
+loss_ax.plot(hist.history['loss'], 'y', label='train_loss')
+loss_ax.plot(hist.history['val_loss'], 'r', label='val_loss')
+acc_ax = loss_ax.twinx() # loss_ax와 x축을 공유하는 acc_ax 생성
+acc_ax.plot(hist.history['accuracy'], 'g', label='train_accuracy')
+acc_ax.plot(hist.history['val_accuracy'], 'b', label='val_accuracy')
+loss_ax.set_xlabel('epoch')
+loss_ax.set_ylabel('loss')
+acc_ax.set_ylabel('accuracy')
+loss_ax.legend(bbox_to_anchor=(0.955, 0.7))
+acc_ax.legend(loc='center right')
+plt.show()
+
+# 모델 평가
+loss, acc = model.evaluate(test_X, test_Y, verbose=0)
+print('최종 모델 :',acc, loss)
+
+# 성능평가(성능평가지표=교차표,혼동행렬, acc, recall, precision, f1)를 위해 실제값, 예측값
+# y_test : 실제값
+y_hat = model2.predict(test_X, verbose=0).argmax(axis=1) # 예측값
+
+print('accuracy :', accuracy_score(y_test, y_hat))
+# 다중분류의 타겟변수의 균형이 비슷하면 'macro' / 균형이 안 잡힌 데이터면 'weighted'
+print('recall :', recall_score(y_test, y_hat, average='weighted'))
+print('precision :', precision_score(y_test, y_hat, average='weighted'))
+print('f1_score :', f1_score(y_test, y_hat, average='weighted'))
+
+# 틀린 갯수
+len(y_test) - len(y_test)*acc2
+
+# 틀린 이미지 출력
+plt_row = 5
+plt_col = 10
+plt.rcParams['figure.figsize'] = (plt_col, plt_row)
+fig, axarr = plt.subplots(nrows=plt_row, ncols=plt_col)
+i = 0 # 출력할 이미지의 index
+cnt = 0 # 이미지 출력횟수 : 1~120
+while (cnt < plt_row*plt_col) & (i<len(y_test)):
+    if(y_test[i] == y_hat[i]):
+        i += 1
+        continue
+    title = f'r:{y_test[i]}/p:{y_hat[i]}'
+    ax = axarr[cnt//plt_col, cnt%plt_col]
+    ax.imshow(X_test[i], cmap='gray')
+    ax.axis('off')
+    ax.set_title(title, fontsize=14)
+    print(title, end='\t')
+    i += 1
+    cnt += 1
+plt.tight_layout()
