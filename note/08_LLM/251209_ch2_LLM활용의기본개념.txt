@@ -1,0 +1,38 @@
+1. LLM을 활용하여 답변 생성하기
+1) Ollama를 이용한 로컬 LLM 이용
+- 성능은 GPT, CLaude 같은 모델보다 떨어지나, 개념 설명을 위해 open source 모델 사용
+#ollama.com 다운로드 -> 설치 -> 모델 pull
+- cmd창이나 powershell 창에 ollama run deepseek-r1:1.5b
+#https://docs.langchain.com/oss/python/integrations/chat/ollama
+#모델 pull
+- cmd창이나 powershell(window키+R에서 powershell)창에서 ollama pull llama3.2:1b
+
+2) openai 활용
+- pip install langchain-openai
+- https://auth.openai.com/log-in
+
+2. LangChain 스타일로 프롬프트 작성
+- 프롬프트 : llm호출시 쓰는 질문
+1) 기본 프롬프트 템플릿 사용
+- PromptTemplate을 사용하여 변수가 포함된 템플릿을 작성하면 PromptValue
+
+2) 메세지 기반 프롬프트 작성
+- BaseMessage 리스트
+- BaseMessage 상속받은 클래스 : AIMessage, HumanMessage, SystemMessage, ToolMessage
+- vscode에서 ctrl+shift+p : python:select interpreter입력 -> python환경선택
+- vscode에서 커널 선택
+
+3) ChatPromptTemplate 사용
+- BaseMessage리스트 -> 튜플리스트
+
+3. 답변 형식 컨트롤하기
+- llm.invoke()의 결과는 AIMessage() -> string이나 json, 객체 : OutputParser이용
+1) 문자열 출력 파서 이용
+- StrOutputParser를 사용하여 LLM출력(AIMessage)을 단순 문자열로 변환
+
+2) Json 출력 파서 이용
+- {'name':'홍길동', 'age':22}
+
+3) 구조화된 출력 사용
+- Pydantic 모델을 사용하여 LLM출력을 구조화된 형식으로 받기(JsonParser보다 훨씬 안정적)
+- Pydantic : 데이터유효성검사, 설정관리를 간편하게 해주는 라이브러리
