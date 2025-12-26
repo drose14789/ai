@@ -1,0 +1,6 @@
+4.2 부스팅
+- AdaBoost, XGB, LightGBM, CatBoost
+
+4-3 투표를 이용한 앙상블(61p)
+- voting = 'hard' : 다수결로 투표
+- voting = 'soft' : 확률의 합을 계산하여 투표(64page)
