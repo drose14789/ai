@@ -108,12 +108,12 @@
 	
 ## 🏆 GitHub Trophy
 
-![trophy](https://github-profile-trophy.vercel.app/?username=본인git의username&theme=radical&no-frame=true&title=Commit,Repositories,Experience)
+![trophy](https://github-profile-trophy.vercel.app/?username=drose14789&theme=radical&no-frame=true&title=Commit,Repositories,Experience)
 
 ## 📊 GitHub Activity
 
-![Followers](https://img.shields.io/github/followers/본인git의username?style=social)
+![Followers](https://img.shields.io/github/followers/drose14789?style=social)
 ![Stars](https://img.shields.io/github/stars/drose14789?style=social)
-![Profile Views](https://komarev.com/ghpvc/?username=본인git의username&color=blueviolet&style=flat-square&label=Profile+Views)
-![Repos](https://img.shields.io/badge/dynamic/json?color=blue&label=Repositories&query=public_repos&url=https://api.github.com/users/본인git의username)
-![Commits](https://img.shields.io/github/commit-activity/m/본인git의username/ai)
+![Profile Views](https://komarev.com/ghpvc/?username=drose14789&color=blueviolet&style=flat-square&label=Profile+Views)
+![Repos](https://img.shields.io/badge/dynamic/json?color=blue&label=Repositories&query=public_repos&url=https://api.github.com/users/drose14789)
+![Commits](https://img.shields.io/github/commit-activity/m/drose14789/ai)
